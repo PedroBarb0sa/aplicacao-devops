@@ -173,6 +173,13 @@ git pull origin main
 
 ## 📄 Licença
 
+Divisão de Tarefas - Grupo N1:
+Pedro Barbosa: Responsável pela inicialização do projeto Node.js/Express e execução dos comandos Git de controle de versão (branches e merges).
+Leandro Nivaldo: Desenvolveu a estrutura da página index.html e a estilização visual do projeto.
+Ambos: Colaboraram na implementação dos endpoints do servidor e na elaboração da documentação detalhada no README.md.
+
+
+ 
 ISC
 
 ---
