@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação DevOps - N1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Bem-vindo!</h1>
+        <p>
+            Esta é a aplicação <span class="highlight">Aplicação DevOps</span> desenvolvida para a avaliação N1 de 
+            <span class="highlight">Ferramentas de Implantação Contínua - DevOps</span>.
+        </p>
+
+        <div class="button-group">
+            <button onclick="carregarIntegrantes()">Ver Integrantes</button>
+            <button onclick="recarregar()">Recarregar</button>
+        </div>
+
+        <div class="info-box">
+            <h3>ℹ️ Sobre o Projeto</h3>
+            <p><strong>Objetivo:</strong> Demonstrar o uso correto do Git e GitHub com divisão de tarefas em branches.</p>
+            <p><strong>Stack:</strong> Node.js + Express.js</p>
+            <p><strong>Endpoints:</strong> GET / e GET /integrantes</p>
+        </div>
+    </div>
+
+    <script>
+        function carregarIntegrantes() {
+            fetch('/integrantes')
+                .then(response => response.json())
+                .then(data => {
+                    let mensagem = 'Integrantes do Grupo:\n\n';
+                    data.integrantes.forEach((integrante, index) => {
+                        mensagem += `${index + 1}. ${integrante.nome}\n`;
+                    });
+                    alert(mensagem);
+                })
+                .catch(error => {
+                    alert('Erro ao carregar integrantes: ' + error);
+                    console.error('Erro:', error);
+                });
+        }
+
+        function recarregar() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

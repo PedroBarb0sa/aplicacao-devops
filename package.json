@@ -1,0 +1,18 @@
+{
+  "name": "aplicacao-devops",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "description": "Aplicação Node.js + Express para avaliação N1 de DevOps",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["devops", "git", "express", "nodejs"],
+  "author": "Pedro Barbosa, Leandro Nivaldo",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
